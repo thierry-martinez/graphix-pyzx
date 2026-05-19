@@ -8,6 +8,7 @@ dependencies = ["graphix>=0.3.5", "pyzx>=0.10"]
 
 [project.optional-dependencies]
 dev = [
+    "nox>=2026.4.10",
     "types-networkx>=3.6.1.20260518",
 ]
 

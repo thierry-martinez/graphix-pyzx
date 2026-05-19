@@ -33,7 +33,8 @@ def to_pyzx_graph(og: OpenGraph[BlochMeasurement]) -> BaseGraph[int, tuple[int, 
     Example
     -------
     >>> import networkx as nx
-    >>> from graphix.pyzx import to_pyzx_graph
+    >>> from graphix import OpenGraph
+    >>> from graphix_pyzx import to_pyzx_graph
     >>> g = nx.Graph([(0, 1), (1, 2)])
     >>> inputs = [0]
     >>> outputs = [2]
@@ -116,7 +117,7 @@ def from_pyzx_graph(g: BaseGraph[int, tuple[int, int]]) -> OpenGraph[Measurement
     Example
     -------
     >>> import pyzx as zx
-    >>> from graphix.pyzx import from_pyzx_graph
+    >>> from graphix_pyzx import from_pyzx_graph
     >>> circ = zx.qasm("qreg q[2]; h q[1]; cx q[0], q[1]; h q[1];")
     >>> g = circ.to_graph()
     >>> og = from_pyzx_graph(g)

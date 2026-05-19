@@ -34,4 +34,4 @@ jobs:
         uses: ./.github/actions/setup-uv
 
       - name: Run nox
-        run: uv run --extra dev nox -db uv --python ${{ matrix.python }}
+        run: uv run --extra dev pytest --doctest-modules

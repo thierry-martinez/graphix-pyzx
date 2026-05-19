@@ -4,7 +4,10 @@ version = "0.1.0"
 description = "Graphix plugin for importing and exporting XZ-diagrams with pyzx"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = ["graphix>=0.3.5", "pyzx>=0.10"]
+dependencies = [
+    "graphix>=0.3.5",
+    "pyzx>=0.10",
+]
 
 [project.optional-dependencies]
 dev = [
@@ -32,3 +35,6 @@ reportUnknownParameterType = "information"
 reportUnknownVariableType = "information"
 # reportInvalidTypeVarUse is a warning by default
 reportInvalidTypeVarUse = "error"
+
+[tool.uv.sources]
+graphix = { git = "https://github.com/thierry-martinez/graphix.git", rev = "fix/468-remove-pyzx" }

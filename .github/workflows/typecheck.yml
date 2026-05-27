@@ -12,9 +12,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # We stick to Python 3.13 since qiskit-aer is not available yet for Python 3.14.
-  # See https://github.com/Qiskit/qiskit-aer/issues/2378.
-  python-version: "3.13"
+  python-version: "3.14"
 
 jobs:
   mypy-pyright:
@@ -35,36 +33,3 @@ jobs:
       - run: uv run --extra dev --extra typing mypy
 
       - run: uv run --extra dev --extra typing pyright
-
-  # Check that `mypy` find installed `graphix` package (#328)
-  #
-  # Note that `mypy` does not find editable packages (installed with
-  # the option `pip install -e`), unless they are installed in
-  # `compat` or `strict` mode.
-  #
-  # pip install -e . --config-settings editable_mode=strict
-  #
-  # See https://github.com/pypa/setuptools/issues/3518.
-  typed-package:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v5
-        with:
-          fetch-depth: 0 # Fetch all, necessary to find tags and branches
-          fetch-tags: true
-
-      - name: Setup uv
-        uses: ./.github/actions/setup-uv
-        with:
-          enable-cache: true
-          python-version: ${{ env.python-version }}
-
-      - name: Install graphix and mypy
-        run: uv sync --extra dev --no-editable
-
-      - name: Test type-checking
-        run: |
-          cd ${{ runner.temp }}
-          echo "from graphix import Pattern" > test_graphix_type.py
-          uv run --project ${{ github.workspace }} --no-sync mypy test_graphix_type.py

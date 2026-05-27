@@ -35,6 +35,3 @@ reportUnknownParameterType = "information"
 reportUnknownVariableType = "information"
 # reportInvalidTypeVarUse is a warning by default
 reportInvalidTypeVarUse = "error"
-
-[tool.uv.sources]
-graphix = { git = "https://github.com/thierry-martinez/graphix.git", rev = "fix/468-remove-pyzx" }

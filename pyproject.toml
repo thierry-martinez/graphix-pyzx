@@ -35,3 +35,6 @@ reportUnknownParameterType = "information"
 reportUnknownVariableType = "information"
 # reportInvalidTypeVarUse is a warning by default
 reportInvalidTypeVarUse = "error"
+
+[tool.uv.sources]
+graphix = { git = "https://github.com/TeamGraphix/graphix.git" }

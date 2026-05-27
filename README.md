@@ -7,4 +7,4 @@ included directly in the `OpenGraph` class of Graphix because we want
 the `pyzx` library to remain an optional dependency.
 
 This code was originally part of the Graphix codebase.  The initial
-version was written by Will Cashman (@wlcsm) ast Oxford University.
+version was written by Will Cashman (@wlcsm) at Oxford University.

@@ -1,0 +1,40 @@
+[project]
+name = "graphix-pyzx"
+version = "0.1.0"
+description = "Graphix plugin for importing and exporting XZ-diagrams with pyzx"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "graphix>=0.3.5",
+    "pyzx>=0.10",
+]
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=2.1.0",
+    "pyright>=1.1.409",
+    "pytest>=9.0.3",
+    "pytest-cov>=7.1.0",
+]
+typing = [
+    "types-networkx==3.6.1.20260518",
+]
+
+[tool.mypy]
+# Keep in sync with pyright
+files = ["graphix_pyzx", "tests"]
+strict = true
+
+[tool.pyright]
+# Keep in sync with mypy
+include = ["graphix_pyzx", "tests"]
+reportUnknownArgumentType = "information"
+reportUnknownLambdaType = "information"
+reportUnknownMemberType = "information"
+reportUnknownParameterType = "information"
+reportUnknownVariableType = "information"
+# reportInvalidTypeVarUse is a warning by default
+reportInvalidTypeVarUse = "error"
+
+[tool.uv.sources]
+graphix = { git = "https://github.com/TeamGraphix/graphix.git" }

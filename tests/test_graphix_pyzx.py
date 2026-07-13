@@ -16,7 +16,7 @@ from pyzx.generate import cliffordT as clifford_t
 if TYPE_CHECKING:
     from pyzx.graph.base import BaseGraph
 
-    from graphix import Pattern, Statevec
+    from graphix import Pattern, Statevector
 
 
 def test_graph_equality(fx_rng: Generator) -> None:
@@ -62,7 +62,7 @@ def test_random_clifford_t() -> None:
         assert_reconstructed_pyzx_graph_equal(g)
 
 
-def simulate_pattern(pattern: Pattern, rng: Generator) -> Statevec:
+def simulate_pattern(pattern: Pattern, rng: Generator) -> Statevector:
     pattern.remove_pauli_measurements()
     pattern.minimize_space()
     return pattern.simulate_pattern(rng=rng)

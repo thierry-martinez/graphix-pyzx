@@ -5,7 +5,7 @@ description = "Graphix plugin for importing and exporting XZ-diagrams with pyzx"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "graphix>=0.3.5",
+    "graphix @ git+https://github.com/thierry-martinez/graphix.git@rename-simulate",
     "pyzx>=0.10",
 ]
 

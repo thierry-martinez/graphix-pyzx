@@ -68,7 +68,7 @@ def test_random_clifford_t() -> None:
 def simulate_pattern(pattern: Pattern, rng: Generator) -> Statevec:
     pattern.remove_pauli_measurements()
     pattern.minimize_space()
-    return pattern.simulate_pattern(rng=rng)
+    return pattern.simulate(rng=rng)
 
 
 def check_round_trip(pattern: Pattern, rng: Generator, full_reduce: bool) -> bool:
@@ -104,8 +104,8 @@ def test_rz(fx_rng: Generator) -> None:
     g = circ.to_graph()
     og = from_pyzx_graph(g).infer_pauli_measurements()
     pattern_zx = og.to_pattern()
-    state = pattern.simulate_pattern(rng=fx_rng)
-    state_zx = pattern_zx.simulate_pattern(rng=fx_rng)
+    state = pattern.simulate(rng=fx_rng)
+    state_zx = pattern_zx.simulate(rng=fx_rng)
     assert state_zx.isclose(state)
 
 

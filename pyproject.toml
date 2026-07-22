@@ -37,4 +37,4 @@ reportUnknownVariableType = "information"
 reportInvalidTypeVarUse = "error"
 
 [tool.uv.sources]
-graphix = { git = "https://github.com/matulni/graphix.git", rev = "rename_methods" }
+graphix = { git = "https://github.com/TeamGraphix/graphix.git", rev = "master" }

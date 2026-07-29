@@ -5,21 +5,18 @@ from typing import TYPE_CHECKING
 
 import numpy as np
 import pytest
-from numpy.random import PCG64, Generator
-
+import pyzx as zx
 from graphix.fundamentals import ANGLE_PI
 from graphix.random_objects import rand_circuit
 from graphix.transpiler import Circuit
-
-import pyzx as zx
+from graphix_pyzx import from_pyzx_graph, to_pyzx_graph
+from numpy.random import PCG64, Generator
 from pyzx.generate import cliffordT as clifford_t
 
-from graphix_pyzx import from_pyzx_graph, to_pyzx_graph
-
-
 if TYPE_CHECKING:
-    from graphix import Pattern, Statevec
     from pyzx.graph.base import BaseGraph
+
+    from graphix import Pattern, Statevector
 
 
 def test_graph_equality(fx_rng: Generator) -> None:
@@ -65,14 +62,14 @@ def test_random_clifford_t() -> None:
         assert_reconstructed_pyzx_graph_equal(g)
 
 
-def simulate_pattern(pattern: Pattern, rng: Generator) -> Statevec:
+def simulate_pattern(pattern: Pattern, rng: Generator) -> Statevector:
     pattern.remove_pauli_measurements()
     pattern.minimize_space()
     return pattern.simulate(rng=rng)
 
 
 def check_round_trip(pattern: Pattern, rng: Generator, full_reduce: bool) -> bool:
-    opengraph = pattern.extract_opengraph()
+    opengraph = pattern.to_opengraph()
     zx_graph = to_pyzx_graph(opengraph.to_bloch())
     if full_reduce:
         zx_graph.normalize()

@@ -89,6 +89,7 @@ def test_random_circuit(fx_bg: PCG64, jumps: int, full_reduce: bool) -> None:
     depth = 5
     circuit = rand_circuit(nqubits, depth, rng, use_rzz=True)
     pattern = circuit.transpile().pattern
+    pattern.infer_pauli_measurements()
     assert check_round_trip(pattern, rng, full_reduce)
 
 
@@ -112,4 +113,5 @@ def test_ccx(fx_rng: Generator, full_reduce: bool) -> None:
     circuit = Circuit(3)
     circuit.ccx(0, 1, 2)
     pattern = circuit.transpile().pattern
+    pattern.infer_pauli_measurements()
     assert check_round_trip(pattern, fx_rng, full_reduce)

@@ -9,14 +9,14 @@ import pyzx as zx
 from graphix.fundamentals import ANGLE_PI
 from graphix.random_objects import rand_circuit
 from graphix.transpiler import Circuit
-from graphix_pyzx import from_pyzx_graph, to_pyzx_graph
 from numpy.random import PCG64, Generator
 from pyzx.generate import cliffordT as clifford_t
 
-if TYPE_CHECKING:
-    from pyzx.graph.base import BaseGraph
+from graphix_pyzx import from_pyzx_graph, to_pyzx_graph
 
+if TYPE_CHECKING:
     from graphix import Pattern, Statevector
+    from pyzx.graph.base import BaseGraph
 
 
 def test_graph_equality(fx_rng: Generator) -> None:

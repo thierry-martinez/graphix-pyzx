@@ -7,18 +7,16 @@ from typing import TYPE_CHECKING, SupportsFloat
 
 import networkx as nx
 import pyzx as zx
-from pyzx.graph import Graph
-from pyzx.utils import EdgeType, FractionLike, VertexType
-
 from graphix.fundamentals import Plane
 from graphix.measurements import Measurement
 from graphix.opengraph import OpenGraph
+from pyzx.graph import Graph
+from pyzx.utils import EdgeType, FractionLike, VertexType
 
 if TYPE_CHECKING:
-    from pyzx.graph.base import BaseGraph
-
     from graphix.measurements import BlochMeasurement
     from graphix.parameter import ExpressionOrFloat
+    from pyzx.graph.base import BaseGraph
 
 
 def _fraction_of_angle(angle: ExpressionOrFloat) -> Fraction:

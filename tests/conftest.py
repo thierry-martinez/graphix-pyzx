@@ -3,7 +3,6 @@ from __future__ import annotations
 import pytest
 from numpy.random import PCG64, Generator
 
-
 SEED = 25
 
 

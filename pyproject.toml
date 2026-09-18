@@ -38,3 +38,10 @@ reportInvalidTypeVarUse = "error"
 
 [tool.uv.sources]
 graphix = { git = "https://github.com/TeamGraphix/graphix.git", rev = "master" }
+
+[tool.pytest.ini_options]
+
+# Filter warnings raised by pyzx (zxcalc/pyzx#518)
+filterwarnings = [
+    'ignore:.*invalid escape sequence.*:SyntaxWarning',
+]

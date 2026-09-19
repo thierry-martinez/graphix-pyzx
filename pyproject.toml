@@ -40,8 +40,9 @@ reportInvalidTypeVarUse = "error"
 graphix = { git = "https://github.com/TeamGraphix/graphix.git", rev = "master" }
 
 [tool.pytest.ini_options]
-
-# Filter warnings raised by pyzx (zxcalc/pyzx#518)
 filterwarnings = [
+    # Filter warnings raised by pyzx (zxcalc/pyzx#518)
     'ignore:.*invalid escape sequence.*:SyntaxWarning',
+    # Filter warnings raised by pyzx (zxcalc/pyzx#509)
+    'ignore:.*classes created inside an enum.*:DeprecationWarning',
 ]

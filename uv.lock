@@ -787,8 +787,8 @@ wheels = [
 
 [[package]]
 name = "graphix"
-version = "0.5.dev14+gb38215b58"
-source = { git = "https://github.com/TeamGraphix/graphix.git?rev=master#b38215b583ebd753bd84e2016618336a9a660cae" }
+version = "0.4"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "matplotlib", version = "3.10.9", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
     { name = "matplotlib", version = "3.11.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
@@ -805,6 +805,10 @@ dependencies = [
     { name = "scipy", version = "1.18.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
     { name = "sympy" },
     { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f7/db/052f921993ff8ae6b118df8b2ef28dde0ef5fec2a94ac850f097151053ac/graphix-0.4.tar.gz", hash = "sha256:8d4c61d64446c36a8e76689afdbc9910a17f598036ec9b119f7b90cae38469fe", size = 393032, upload-time = "2026-08-18T16:03:26.248Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/06/fd/e5049c5d37e01f7d38cf4c4ab4d8e9276ff58166c833b29007f594648d2b/graphix-0.4-py3-none-any.whl", hash = "sha256:b2d25443f6650ac1aac6728d7d9703782747765dba5861a3e1e59db0fa8869c3", size = 219504, upload-time = "2026-08-18T16:03:24.715Z" },
 ]
 
 [[package]]
@@ -829,7 +833,7 @@ typing = [
 
 [package.metadata]
 requires-dist = [
-    { name = "graphix", git = "https://github.com/TeamGraphix/graphix.git?rev=master" },
+    { name = "graphix", specifier = ">=0.4" },
     { name = "mypy", marker = "extra == 'dev'", specifier = ">=2.1.0" },
     { name = "pyright", marker = "extra == 'dev'", specifier = ">=1.1.409" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=9.0.3" },

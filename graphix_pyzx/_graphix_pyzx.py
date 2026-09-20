@@ -14,6 +14,8 @@ from pyzx.graph import Graph
 from pyzx.utils import EdgeType, FractionLike, VertexType
 
 if TYPE_CHECKING:
+    from collections.abc import Sequence
+
     from graphix.measurements import BlochMeasurement
     from graphix.parameter import ExpressionOrFloat
     from pyzx.graph.base import BaseGraph
@@ -43,7 +45,7 @@ def to_pyzx_graph(og: OpenGraph[BlochMeasurement]) -> BaseGraph[int, tuple[int, 
     g = Graph()
 
     # Add vertices into the graph and set their type
-    def add_vertices(n: int, ty: VertexType) -> list[VertexType]:
+    def add_vertices(n: int, ty: VertexType) -> Sequence[VertexType]:
         verts = g.add_vertices(n)
         for vert in verts:
             g.set_type(vert, ty)
